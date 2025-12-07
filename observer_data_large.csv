@@ -1,0 +1,42 @@
+name,mass,mass_unit,radius,radius_unit,type,distance,distance_unit,source,category,num_planets,r_s_km,r_over_rs
+Sun,1.0,M_sun,1.0,R_sun,G2V,1.58e-05,pc,Standard,main_sequence,,2.9532500761002503,235570.97505222715
+Sirius A,2.063,M_sun,1.711,R_sun,A1V,2.637,pc,Interferometry,main_sequence,,6.092554906994817,195376.6060660982
+Procyon A,1.499,M_sun,2.048,R_sun,F5IV-V,3.51,pc,Binary,main_sequence,,4.426921864074276,321847.4695843637
+Vega,2.135,M_sun,2.362,R_sun,A0V,7.68,pc,Interferometry,main_sequence,,6.3051889124740335,260617.631416094
+Altair,1.79,M_sun,1.63,R_sun,A7V,5.13,pc,Interferometry,main_sequence,,5.286317636219448,214514.35158387164
+Arcturus,1.08,M_sun,25.4,R_sun,K0III,11.26,pc,Asteroseismology,main_sequence,,3.1895100821882707,5540280.339191267
+Aldebaran,1.16,M_sun,44.2,R_sun,K5III,20.0,pc,Interferometry,main_sequence,,3.42577008827629,8976066.463196933
+Regulus,3.8,M_sun,3.092,R_sun,B8IVn,24.3,pc,Interferometry,main_sequence,,11.222350289180952,191680.38285828586
+Alpha Centauri A,1.1055,M_sun,1.2234,R_sun,G2V,1.34,pc,Binary,main_sequence,,3.2648179591288264,260694.2839248256
+Alpha Centauri B,0.9373,M_sun,0.8632,R_sun,K1V,1.34,pc,Binary,main_sequence,,2.768081296328765,216947.4721701509
+Tau Ceti,0.783,M_sun,0.793,R_sun,G8V,3.65,pc,Asteroseismology,main_sequence,,2.312394809586496,238579.54433769622
+Epsilon Eridani,0.82,M_sun,0.735,R_sun,K2V,3.22,pc,Interferometry,main_sequence,,2.421665062402205,211152.03251632556
+Betelgeuse,16.5,M_sun,764.0,R_sun,M1-2Ia-ab,168.0,pc,VLTI,main_sequence,,48.72862625565413,10907649.99635767
+Rigel,21.0,M_sun,78.9,R_sun,B8Ia,264.0,pc,Spectroscopy,main_sequence,,62.01825159810526,885073.8062676535
+Antares,12.4,M_sun,680.0,R_sun,M1.5Iab-b,170.0,pc,VLTI,main_sequence,,36.62030094364311,12918408.309315681
+Spica,11.43,M_sun,7.47,R_sun,B1III-IV,76.9,pc,Binary,main_sequence,,33.755648369825856,153955.83408925083
+Pollux,1.91,M_sun,8.8,R_sun,K0III,10.3,pc,Asteroseismology,main_sequence,,5.640707645351478,1085353.1834867012
+Fomalhaut,1.92,M_sun,1.842,R_sun,A3V,7.7,pc,Interferometry,main_sequence,,5.67024014611248,226000.90419073048
+Deneb,19.0,M_sun,203.0,R_sun,A2Ia,802.0,pc,Spectroscopy,main_sequence,,56.11175144590476,2516889.8913474795
+Canopus,8.0,M_sun,71.4,R_sun,A9II,95.9,pc,Spectroscopy,main_sequence,,23.626000608802002,2102470.9523411277
+Achernar,6.7,M_sun,7.3,R_sun,B6Vep,42.6,pc,Interferometry,main_sequence,,19.786775509871678,256666.88326585942
+Beta Centauri,10.7,M_sun,8.9,R_sun,B1III,129.0,pc,Spectroscopy,main_sequence,,31.59977581427268,195942.21289390855
+Capella A,2.5687,M_sun,11.98,R_sun,G5III,13.0,pc,Binary,main_sequence,,7.586013470478713,1098664.8036460783
+Capella B,2.4828,M_sun,8.83,R_sun,G0III,13.0,pc,Binary,main_sequence,,7.332329288941702,837800.7530655572
+Sirius B,1.018,M_sun,0.00864,R_sun,DA2,2.637,pc,Binary,white_dwarf,,3.006408577470055,1999.3450141957196
+Procyon B,0.602,M_sun,0.01234,R_sun,DQZ,3.51,pc,Binary,white_dwarf,,1.7778565458123505,4828.813674658611
+40 Eridani B,0.573,M_sun,0.0136,R_sun,DA4,4.94,pc,Binary,white_dwarf,,1.6922122936054433,5591.213369476944
+Stein 2051 B,0.675,M_sun,0.01096,R_sun,DC5,5.04,pc,Astrometry,white_dwarf,,1.9934438013676692,3824.974646773939
+van Maanen's star,0.67,M_sun,0.0101,R_sun,DZ8,4.2,pc,Spectroscopy,white_dwarf,,1.978677550987168,3551.144549294767
+PSR J0030+0451,1.34,M_sun,12.71,km,Pulsar,325.0,pc,NICER,neutron_star,,3.957355101974336,3.2117410928473276
+PSR J0740+6620,2.08,M_sun,12.39,km,Pulsar,1140.0,pc,NICER,neutron_star,,6.142760158288521,2.017008589091987
+PSR J0348+0432,2.01,M_sun,13.0,km,Pulsar,650.0,pc,Shapiro,neutron_star,,5.9360326529615035,2.190014907265421
+PSR J1614-2230,1.97,M_sun,12.5,km,Pulsar,790.0,pc,Shapiro,neutron_star,,5.817902649917492,2.1485405913722655
+Kepler-11,0.961,M_sun,1.065,R_sun,G,613.0,pc,Kepler,exoplanet_host,6.0,2.83807332313234,261064.60814840996
+TRAPPIST-1,0.0898,M_sun,0.1192,R_sun,M8V,12.43,pc,Transit,exoplanet_host,7.0,0.2652018568338025,312695.5481762302
+HD 219134,0.778,M_sun,0.778,R_sun,K3V,6.53,pc,Transit+RV,exoplanet_host,6.0,2.297628559205995,235570.97505222712
+55 Cancri,0.905,M_sun,0.943,R_sun,G8V,12.59,pc,Asteroseismology,exoplanet_host,5.0,2.6726913188707266,245462.3530102212
+Kepler-90,1.2,M_sun,1.2,R_sun,G,836.0,pc,Kepler,exoplanet_host,8.0,3.5439000913203005,235570.97505222715
+HD 10180,1.06,M_sun,1.1,R_sun,G1V,39.4,pc,RV,exoplanet_host,7.0,3.1304450806662656,244460.44580891498
+Kepler-20,0.912,M_sun,0.944,R_sun,G8,290.0,pc,Kepler,exoplanet_host,6.0,2.6933640694034287,243836.62329967367
+GJ 876,0.334,M_sun,0.3761,R_sun,M4V,4.7,pc,Binary+RV,exoplanet_host,4.0,0.9863855254174837,265264.202745936

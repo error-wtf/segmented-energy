@@ -1,0 +1,216 @@
+🔧 WINDSURF-PROMPT (zum Kopieren)
+======================================================================
+
+You are an expert scientific Python assistant inside Windsurf. 
+Your task is to implement, document and test a segmented-energy model 
+for an object orbiting around a central mass, using astropy for units 
+and constants. 
+
+I will describe the theoretical model; then you will:
+
+1. Implement it as clean, well-documented Python code.
+2. Use astropy to plug in real physical values (e.g. Sun mass, AU, etc.).
+3. Run numerical tests for different N (number of segments).
+4. Print and compare results.
+5. Make the code easy to extend later (e.g. phi-segmentation).
+
+----------------------------------------------------------------------
+THEORETICAL MODEL
+----------------------------------------------------------------------
+
+We consider:
+
+- Central mass: M
+- Test mass: m
+- Inner radius: r_in
+- Outer radius: r_out
+- Number of segments: N
+- Gravitational constant: G
+- Speed of light: c
+
+We segment the radial interval [r_in, r_out] into N shells.
+
+1) Radial segmentation (linear for now):
+
+    Δr = (r_out - r_in) / N
+
+    r_n = r_in + (n - 0.5) * Δr   for n = 1..N
+
+2) Test mass per segment:
+
+    Δm = m / N
+
+3) Keplerian orbital velocity in each segment:
+
+    v_n = sqrt(G * M / r_n)
+
+4) Special relativistic gamma factor:
+
+    γ_n = 1 / sqrt( 1 - v_n^2 / c^2 )
+        = 1 / sqrt( 1 - (G*M)/(r_n * c^2) )
+
+5) Gravitational energy per segment (toy model, Newtonian):
+
+    E_GR_(n) = - G * M * Δm / r_n
+
+6) Special relativistic energy per segment:
+
+    E_SR_(n) = (γ_n - 1) * Δm * c^2
+
+7) Total segmented energy for N segments:
+
+    E_tot(N) = sum_{n=1..N} [ E_GR_(n) + E_SR_(n) ]
+
+If you fully substitute, this becomes:
+
+    Δr = (r_out - r_in) / N
+    r_n = r_in + (n - 0.5) * Δr
+
+    E_tot(N) = (m / N) * sum_{n=1..N} [
+        - G * M / r_n
+      + ( 1 / sqrt( 1 - (G*M)/(r_n * c^2) ) - 1 ) * c^2
+    ]
+
+This is the exact formula we want you to implement and test.
+
+----------------------------------------------------------------------
+IMPLEMENTATION REQUIREMENTS
+----------------------------------------------------------------------
+
+Please create a Python module, for example "segmented_energy.py", with:
+
+1) Imports:
+   - from astropy import units as u
+   - from astropy.constants import G, c, M_sun, R_sun, au
+
+   If helpful, you may add numpy.
+
+2) A main function:
+
+   compute_segmented_energy(
+       M,          # central mass as astropy Quantity (e.g. 1 * M_sun)
+       m_test,     # test mass as astropy Quantity (e.g. 1 * u.kg)
+       r_in,       # inner radius as astropy Quantity
+       r_out,      # outer radius as astropy Quantity
+       N_segments  # integer number of segments
+   ) -> dict
+
+   It should:
+   - Implement the formulas above with full unit safety.
+   - Return a dictionary containing:
+     {
+       "E_total":       E_tot(N) with units of Joule,
+       "E_GR_total":    sum of E_GR_(n),
+       "E_SR_total":    sum of E_SR_(n),
+       "N_segments":    N_segments,
+       "r_in":          r_in,
+       "r_out":         r_out,
+     }
+
+   Internally, do NOT hardcode units; use astropy Quantities consistently.
+
+3) Optional helper functions:
+
+   - radii_linear(r_in, r_out, N):
+       returns an array of r_n for n=1..N (segment midpoints)
+
+   - segment_energies(M, m_test, r_array):
+       computes arrays of E_GR_(n), E_SR_(n) and returns them.
+
+   Make sure you vectorize with numpy where convenient, but keep code readable.
+
+4) CLI / script entry point:
+
+   Add a:
+
+       if __name__ == "__main__":
+
+   block that:
+
+   - Defines example parameters, e.g.:
+       M_example     = 1.0 * M_sun
+       m_example     = 1.0 * u.kg
+       r_in_example  = 2.0 * R_sun
+       r_out_example = 1.0 * au
+
+   - Runs compute_segmented_energy for different N:
+       N_values = [10, 100, 1000, 10000]  (choose what is computationally reasonable)
+
+   - For each N, prints:
+       - N
+       - E_total (in Joule)
+       - E_GR_total (in Joule)
+       - E_SR_total (in Joule)
+
+     and maybe also:
+       - E_total / (m * c^2) as a dimensionless ratio
+
+   - Shows how results converge (or change) as N increases.
+
+5) Phi-based segmentation hook (only structure for now):
+
+   Add an optional alternative radius generator:
+
+       def radii_phi_spiral(r_in, r_out, N, phi=1.618..., n_turns=1):
+           """
+           Placeholder: later we will implement a phi-based spiral segmentation.
+           For now, you can just reuse the linear segmentation or implement a simple
+           exponential scaling between r_in and r_out as a stub.
+           """
+           # For now, just call radii_linear(...)
+           return radii_linear(r_in, r_out, N)
+
+   And modify compute_segmented_energy to accept a parameter:
+
+       segmentation="linear" or "phi"
+
+   so that later this can be switched easily.
+
+----------------------------------------------------------------------
+ASTROPY TESTS WITH REAL VALUES
+----------------------------------------------------------------------
+
+In addition to the example with the Sun (1 * M_sun, 1 * au), please:
+
+1) Add a second test case in the __main__ block that uses:
+
+   - M = 10 * M_sun
+   - r_in = 6 * R_sun
+   - r_out = 1 * au
+   - m_test = 1 * u.kg
+   - A few N values (e.g. [100, 1000])
+
+2) For each test case, print:
+
+   - The input parameters with units.
+   - The results described above.
+   - A short text line like:
+       "Case: M = 10 Msun, r_in = 6 Rsun, r_out = 1 AU, N = 1000"
+       "E_total = ... J  (E_total / (m c^2) = ...)"
+
+3) Make sure the script runs without crashing even if N is large (e.g. 10_000).
+   If needed, optimize with numpy arrays instead of Python loops.
+
+----------------------------------------------------------------------
+CODE STYLE AND QUALITY
+----------------------------------------------------------------------
+
+- Use clear function names, docstrings and type hints where possible.
+- Keep everything in a single file for now.
+- Do not use any external dependencies beyond astropy and numpy.
+- Use astropy.units consistently; avoid mixing bare floats with Quantities.
+- Add minimal error checks, e.g. r_out > r_in, N > 0, etc.
+
+----------------------------------------------------------------------
+DELIVERABLE
+
+Please now:
+
+1) Generate the complete "segmented_energy.py" file content.
+2) Show it in a single code block so I can copy-paste it.
+3) After the code block, briefly summarize what I should run in the terminal
+   (e.g. "python segmented_energy.py") to execute the tests.
+
+======================================================================
+END OF WINDSURF PROMPT
+======================================================================

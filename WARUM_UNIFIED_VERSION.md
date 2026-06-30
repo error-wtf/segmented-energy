@@ -303,7 +303,7 @@ Die Unified Version ist **ready** für SSZ-Korrekturen:
 
 **SSZ-Formel:**
 ```
-Ξ(r) = Ξ_max(1 - exp(-φr/r_s))
+Ξ(r) = Ξ_max(1 - exp(-φr_s / r))
 ```
 
 **Implementation (vorbereitet):**

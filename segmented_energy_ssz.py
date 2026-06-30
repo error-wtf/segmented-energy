@@ -4,7 +4,7 @@
 Segmented Spacetime (SSZ) Energy Model - Complete Implementation
 
 Implementiert das vollständige SSZ-Modell mit:
-- Segment Density: Xi(r) = Xi_max(1 - exp(-phi*r/r_s))
+- Segment Density: Xi(r) = Xi_max(1 - exp(-phi*r_s / r))
 - SSZ Time Dilation: D_SSZ = 1/(1 + Xi(r))
 - phi-Spiral Segmentierung
 - Alle SSZ-spezifischen Observable
@@ -51,7 +51,7 @@ def segment_density_Xi(r: u.Quantity, M: u.Quantity,
     """
     SSZ Segment Density (Exponential Form).
     
-    Xi(r) = Xi_max * (1 - exp(-phi * r/r_s))
+    Xi(r) = Xi_max * (1 - exp(-phi * r_s / r))
     
     Parameters
     ----------

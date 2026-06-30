@@ -175,7 +175,7 @@ B(r) → 1
 ### 3.1 Exponentielle Form (UNIVERSAL)
 
 ```
-Ξ(r) = Ξ_max(1 - exp(-φr/r_s))
+Ξ(r) = Ξ_max(1 - exp(-φr_s / r))
 ```
 
 **Parameter:**
@@ -212,7 +212,7 @@ B(r) → 1
 
 **Erste Ableitung (exponentiell):**
 ```
-dΞ/dr = (Ξ_max · φ/r_s) exp(-φr/r_s)
+dΞ/dr = (Ξ_max · φ/r_s) exp(-φr_s / r)
 ```
 
 **Erste Ableitung (hyperbolisch):**
@@ -1354,7 +1354,7 @@ ds² = -c²dt² + a²(t)[dr²/(1-kr²) + r²dΩ²] · (SSZ-Faktoren)
 
 3. **Segment-Dichte:**
    ```
-   Ξ(r) = Ξ_max(1 - exp(-φr/r_s))
+   Ξ(r) = Ξ_max(1 - exp(-φr_s / r))
    ```
 
 4. **Zeit-Dilatation:**

@@ -178,7 +178,7 @@ Keine Sammel-Energiesymbole (E_GR, E_SR) mehr!
 
 **Segment-Dichte:**
 ```
-Ξ(r) = Ξ_max(1 - exp(-φ·r/r_s))
+Ξ(r) = Ξ_max(1 - exp(-φ·r_s / r))
 ```
 
 **SSZ-Potential:**
@@ -438,7 +438,7 @@ E_tot = m·{c²
 ```
 
 **Mit:**
-- Ξ(r) = Ξ_max(1 - exp(-φ·r/r_s))
+- Ξ(r) = Ξ_max(1 - exp(-φ·r_s / r))
 - φ_G(r) = sqrt(2GM/(r·c²))
 
 ### 7.3 Vorteile der Segmentierung
